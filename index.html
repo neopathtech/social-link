@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=Montserrat:wght@600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -52,20 +52,11 @@
 
     /* ---------- Header ---------- */
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: "Montserrat", system-ui, sans-serif;
-      font-size: clamp(22px, 6vw, 32px);
-      letter-spacing: -0.01em;
-      line-height: 1;
-      font-weight: 600;
-      color: var(--ink);
-      text-decoration: none;
+      display: inline-block;
     }
 
     .brand img {
-      width: 48px;
+      width: min(340px, 78vw);
       height: auto;
       display: block;
     }
@@ -86,7 +77,11 @@
 
     h1 em {
       font-style: italic;
-      padding-right: .06em;
+      /* room for the italic overhang, which background-clip would otherwise cut off */
+      padding: 0 .15em 0 .05em;
+      margin: 0 -.15em 0 -.05em;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
       background: linear-gradient(90deg, var(--fb), #d62976 50%, var(--yt));
       -webkit-background-clip: text;
       background-clip: text;
@@ -613,9 +608,8 @@
   </svg>
 
   <header>
-    <a class="brand" href="https://neopathtech.com" aria-label="Neopath Technology">
-      <img src="logo.png" alt="" width="48" height="34">
-      Neopath Technology
+    <a class="brand" href="https://neopathtech.com">
+      <img src="Neopath_logo.svg" alt="Neopath Technology" width="340" height="80">
     </a>
     <h1>Let's stay <em>connected</em></h1>
   </header>
