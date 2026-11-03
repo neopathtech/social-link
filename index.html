@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neopath Technology · Links</title>
+  <meta name="description" content="Follow Neopath Technology on Facebook, Instagram and YouTube.">
+  <meta property="og:title" content="Neopath Technology · Let's stay connected">
+  <meta property="og:description" content="Follow Neopath Technology on Facebook, Instagram and YouTube.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=Montserrat:wght@600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f7fa;
+      --ink: #10252e;
+      --muted: #5b6670;
+      --lilac: #efd9ff;
+      --purple: #b56ef5;
+      --navy: #12272f;
+      --cyan: #a3f2f2;
+      --red: #ff3b2f;
+      --white: #ffffff;
+      --radius: 36px;
+      --fb: #1877f2;
+      --ig: linear-gradient(140deg, #feda75 0%, #fa7e1e 22%, #d62976 52%, #962fbf 78%, #4f5bd5 100%);
+      --yt: #ff0000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 56px 20px 40px;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Header ---------- */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-size: clamp(22px, 6vw, 32px);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 48px;
+      height: auto;
+      display: block;
+    }
+
+    header {
+      text-align: center;
+      max-width: 720px;
+    }
+
+    h1 {
+      margin-top: 28px;
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(40px, 6.5vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: italic;
+      padding-right: .06em;
+      background: linear-gradient(90deg, var(--fb), #d62976 50%, var(--yt));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lede {
+      margin: 18px auto 0;
+      max-width: 460px;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    /* ---------- Cards ---------- */
+    .cards {
+      width: 100%;
+      max-width: 1180px;
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 500px;
+      padding: 34px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      isolation: isolate;
+      text-decoration: none;
+      color: var(--white);
+      transition: transform .45s cubic-bezier(.2, .9, .3, 1.3), box-shadow .45s ease;
+      box-shadow: 0 1px 0 rgba(16, 37, 46, .04);
+      animation: rise .8s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) rotate(-1deg);
+      box-shadow: 0 30px 60px -20px var(--glow);
+    }
+
+    .card:nth-child(2):hover {
+      transform: translateY(-10px) rotate(1deg);
+    }
+
+    .card:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 5px;
+    }
+
+    .card .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .platform {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 19px;
+    }
+
+    .platform svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* big brand logos */
+    .logo {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      aspect-ratio: 1 / 1;
+      filter: drop-shadow(0 14px 22px rgba(0, 0, 0, .25));
+      transition: transform .5s cubic-bezier(.2, .9, .3, 1.5);
+      animation: bob 4.5s ease-in-out infinite;
+    }
+
+    .logo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .card:hover .logo {
+      transform: scale(1.12) rotate(-6deg);
+    }
+
+    .card h2 {
+      position: relative;
+      z-index: 2;
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(30px, 3.2vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 2;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .pill {
+      position: relative;
+      z-index: 2;
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      padding: 10px 18px;
+      border: 1.5px solid currentColor;
+      border-radius: 999px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background .3s ease, color .3s ease, gap .3s ease;
+    }
+
+    .pill .arrow {
+      transition: transform .3s ease;
+    }
+
+    .card:hover .pill {
+      gap: 12px;
+    }
+
+    .card:hover .pill .arrow {
+      transform: translateX(3px);
+    }
+
+    .handle {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: .9;
+    }
+
+    /* decorative shapes */
+    .shape {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      transition: transform .7s cubic-bezier(.2, .9, .3, 1.2);
+    }
+
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .float2 {
+      animation: float 7.5s ease-in-out infinite reverse;
+    }
+
+    .spin {
+      animation: spin 22s linear infinite;
+    }
+
+    /* Card 1 — Facebook blue */
+    .fb {
+      background: var(--fb);
+      --glow: rgba(24, 119, 242, .55);
+    }
+
+    .fb h2 {
+      margin-top: 26px;
+    }
+
+    .fb .blob {
+      width: 82%;
+      left: 44%;
+      bottom: -26%;
+      color: #5aa2ff;
+    }
+
+    .fb .burst {
+      width: 13%;
+      right: 8%;
+      bottom: 33%;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .fb .star {
+      width: 10%;
+      right: 12%;
+      bottom: 9%;
+      color: #0a3d91;
+    }
+
+    .fb .spark {
+      width: 7%;
+      left: 10%;
+      bottom: 14%;
+      color: #ffd84d;
+    }
+
+    .fb .logo {
+      width: 40%;
+      margin-top: auto;
+      align-self: center;
+    }
+
+    .fb:hover .blob {
+      transform: translateY(-6%) rotate(8deg);
+    }
+
+    .fb:hover .pill {
+      background: var(--white);
+      color: var(--fb);
+    }
+
+    /* Card 2 — Instagram gradient */
+    .ig {
+      background: var(--ig);
+      --glow: rgba(214, 41, 118, .55);
+    }
+
+    .ig .hero {
+      position: relative;
+      z-index: 2;
+      width: 34%;
+      margin: auto 0;
+      padding: 24px 0;
+      align-self: center;
+    }
+
+    .ig .frame {
+      position: absolute;
+      z-index: -1;
+      left: 78%;
+      top: 30%;
+      width: 165%;
+      translate: -50% -50%;
+      color: var(--white);
+      transition: transform .7s cubic-bezier(.2, .9, .3, 1.2);
+    }
+
+    .ig .frame svg {
+      width: 100%;
+      display: block;
+    }
+
+    .ig .glyph {
+      position: relative;
+    }
+
+    .ig .glyph svg {
+      width: 100%;
+      display: block;
+      filter: drop-shadow(0 14px 22px rgba(0, 0, 0, .35));
+      transition: transform .5s cubic-bezier(.2, .9, .3, 1.5);
+    }
+
+    .ig:hover .frame>svg {
+      transform: rotate(45deg) scale(1.04);
+    }
+
+    .ig .frame>svg {
+      transition: transform .7s cubic-bezier(.2, .9, .3, 1.2);
+    }
+
+    .ig:hover .glyph svg {
+      transform: rotate(-8deg) scale(1.12);
+    }
+
+    .ig .square {
+      width: 6%;
+      left: 9%;
+      top: 22%;
+      color: #feda75;
+    }
+
+    .ig .star {
+      width: 17%;
+      right: 9%;
+      top: 15%;
+      color: #4f5bd5;
+    }
+
+    .ig .spark {
+      width: 7%;
+      right: 9%;
+      bottom: 30%;
+      color: var(--white);
+    }
+
+    .card .bottom {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .ig h2 {
+      font-size: clamp(26px, 2.6vw, 34px);
+    }
+
+    .card .bottom .pill {
+      margin-top: 0;
+    }
+
+    .ig:hover .pill {
+      background: var(--white);
+      color: #d62976;
+    }
+
+    /* Card 3 — YouTube red */
+    .yt {
+      background: var(--yt);
+      --glow: rgba(255, 0, 0, .5);
+    }
+
+    .yt .cyan {
+      width: 80%;
+      left: -30%;
+      top: -42%;
+      color: #c80000;
+    }
+
+    .yt .burst {
+      width: 18%;
+      right: 5%;
+      bottom: 25%;
+      color: #ffb3b3;
+    }
+
+    .yt .spark {
+      width: 6%;
+      right: 46%;
+      bottom: 22%;
+      color: var(--white);
+    }
+
+    .yt .logo {
+      width: 42%;
+    }
+
+    .yt h2 {
+      margin-top: 26px;
+    }
+
+    .yt:hover .cyan {
+      transform: rotate(-12deg) scale(1.05);
+    }
+
+    .yt:hover .pill {
+      background: var(--white);
+      color: var(--yt);
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: inherit;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        translate: 0 0;
+      }
+
+      50% {
+        translate: 0 -8px;
+      }
+    }
+
+    @keyframes spin {
+      to {
+        rotate: 360deg;
+      }
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        translate: 0 0;
+      }
+
+      50% {
+        translate: 0 -10px;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .cards {
+        grid-template-columns: 1fr;
+        max-width: 460px;
+        gap: 22px;
+      }
+
+      .card {
+        min-height: 0;
+      }
+
+      .card h2 {
+        font-size: clamp(30px, 8.5vw, 42px);
+      }
+
+      .ig h2 {
+        font-size: clamp(24px, 7vw, 32px);
+      }
+
+      .fb .logo {
+        width: 32%;
+        margin-top: 28px;
+      }
+
+      .ig .hero {
+        margin: 44px 0 36px;
+      }
+
+      .ig .frame {
+        top: 36%;
+        width: 150%;
+      }
+
+      .yt .bottom {
+        margin-top: 28px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 40px 16px 32px;
+      }
+
+      .card {
+        padding: 26px;
+        border-radius: 28px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Reusable shapes -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="s-star" viewBox="-8 -8 116 116">
+        <polygon points="50,4 62,29.2 89.8,27 74,50 89.8,73 62,70.8 50,96 38,70.8 10.2,73 26,50 10.2,27 38,29.2"
+          fill="currentColor" stroke="currentColor" stroke-width="10" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="s-blob" viewBox="-14 -14 128 128">
+        <polygon points="50,4 62,29.2 89.8,27 74,50 89.8,73 62,70.8 50,96 38,70.8 10.2,73 26,50 10.2,27 38,29.2"
+          fill="currentColor" stroke="currentColor" stroke-width="22" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="s-burst" viewBox="0 0 100 100">
+        <g fill="currentColor">
+          <circle cx="50" cy="50" r="32" />
+          <circle cx="80" cy="50" r="15" />
+          <circle cx="71.2" cy="71.2" r="15" />
+          <circle cx="50" cy="80" r="15" />
+          <circle cx="28.8" cy="71.2" r="15" />
+          <circle cx="20" cy="50" r="15" />
+          <circle cx="28.8" cy="28.8" r="15" />
+          <circle cx="50" cy="20" r="15" />
+          <circle cx="71.2" cy="28.8" r="15" />
+        </g>
+      </symbol>
+      <symbol id="s-spark" viewBox="0 0 100 100">
+        <path d="M50 0 C55 38 62 45 100 50 C62 55 55 62 50 100 C45 62 38 55 0 50 C38 45 45 38 50 0Z"
+          fill="currentColor" />
+      </symbol>
+      <symbol id="s-square" viewBox="0 0 100 100">
+        <path d="M8 8 Q50 26 92 8 Q74 50 92 92 Q50 74 8 92 Q26 50 8 8Z" fill="currentColor" stroke="currentColor"
+          stroke-width="8" stroke-linejoin="round" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <header>
+    <a class="brand" href="https://neopathtech.com" aria-label="Neopath Technology">
+      <img src="logo.png" alt="" width="48" height="34">
+      Neopath Technology
+    </a>
+    <h1>Let's stay <em>connected</em></h1>
+  </header>
+
+  <main class="cards">
+    <!-- Facebook -->
+    <a class="card fb" href="https://www.facebook.com/Neopathtechnology" target="_blank" rel="noopener noreferrer"
+      aria-label="Follow Neopath Technology on Facebook">
+      <div class="top">
+        <span class="platform">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
+          </svg>
+          Facebook
+        </span>
+        <span class="handle">/Neopathtechnology</span>
+      </div>
+      <h2>Good things are happening here.</h2>
+      <span class="pill">Follow us <span class="arrow">→</span></span>
+
+      <svg class="shape blob" aria-hidden="true">
+        <use href="#s-blob" />
+      </svg>
+      <svg class="shape burst spin" aria-hidden="true">
+        <use href="#s-burst" />
+      </svg>
+      <svg class="shape star float" aria-hidden="true">
+        <use href="#s-star" />
+      </svg>
+      <svg class="shape spark float2" aria-hidden="true">
+        <use href="#s-spark" />
+      </svg>
+
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="11.6" fill="#fff" />
+          <path fill="#1877F2"
+            d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
+        </svg>
+      </span>
+    </a>
+
+    <!-- Instagram -->
+    <a class="card ig" href="https://www.instagram.com/neopathtechnology/" target="_blank" rel="noopener noreferrer"
+      aria-label="Follow Neopath Technology on Instagram">
+      <div class="top">
+        <span class="platform">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+            <circle cx="12" cy="12" r="4.3" />
+            <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none" />
+          </svg>
+          Instagram
+        </span>
+        <span class="handle">@neopathtechnology</span>
+      </div>
+
+      <div class="hero" aria-hidden="true">
+        <div class="frame">
+          <svg viewBox="-6 -6 112 112">
+            <path d="M50 0 C58 30 70 42 100 50 C70 58 58 70 50 100 C42 70 30 58 0 50 C30 42 42 30 50 0Z"
+              fill="currentColor" stroke="currentColor" stroke-width="12" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="glyph">
+          <svg viewBox="0 0 24 24">
+            <defs>
+              <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+                <stop offset="0" stop-color="#fdf497" />
+                <stop offset=".05" stop-color="#fdf497" />
+                <stop offset=".45" stop-color="#fd5949" />
+                <stop offset=".6" stop-color="#d6249f" />
+                <stop offset=".9" stop-color="#285AEB" />
+              </radialGradient>
+            </defs>
+            <rect x="0" y="0" width="24" height="24" rx="6.5" fill="url(#ig-grad)" />
+            <g fill="none" stroke="#fff" stroke-width="1.9">
+              <rect x="5" y="5" width="14" height="14" rx="4.2" />
+              <circle cx="12" cy="12" r="3.3" />
+            </g>
+            <circle cx="16.2" cy="7.8" r=".95" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+
+      <svg class="shape square float" aria-hidden="true">
+        <use href="#s-square" />
+      </svg>
+      <svg class="shape star spin" aria-hidden="true">
+        <use href="#s-star" />
+      </svg>
+      <svg class="shape spark float2" aria-hidden="true">
+        <use href="#s-spark" />
+      </svg>
+
+      <div class="bottom">
+        <h2>Not just another tech page.</h2>
+        <span class="pill">Follow <span class="arrow">→</span></span>
+      </div>
+    </a>
+
+    <!-- YouTube -->
+    <a class="card yt" href="https://youtube.com/@neopathtech?si=ichwFyg4xUV_6MU2" target="_blank"
+      rel="noopener noreferrer" aria-label="Subscribe to Neopath Technology on YouTube">
+      <svg class="shape cyan" aria-hidden="true">
+        <use href="#s-blob" />
+      </svg>
+      <svg class="shape burst spin" aria-hidden="true">
+        <use href="#s-burst" />
+      </svg>
+      <svg class="shape spark float" aria-hidden="true">
+        <use href="#s-spark" />
+      </svg>
+
+      <div class="top">
+        <span class="platform">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z" />
+          </svg>
+          YouTube
+        </span>
+        <span class="handle">@neopathtech</span>
+      </div>
+
+      <h2>Press play. Get to know us.</h2>
+      <div class="bottom">
+        <span class="pill">Subscribe <span class="arrow">→</span></span>
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="0" y="3.5" width="24" height="17" rx="5" fill="#fff" />
+            <path d="M9.6 15.6V8.4l6.2 3.6-6.2 3.6Z" fill="#FF0000" />
+          </svg>
+        </span>
+      </div>
+    </a>
+  </main>
+
+  <footer>© <span id="y">2026</span> Neopath Technology · <a href="https://neopathtech.com">neopathtech.com</a></footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
